@@ -18,9 +18,9 @@ def driver():
     # error estimate (b-a)/2 is smaller than TOL or n is bigger than nmax.
 
     def fun(x):
-        return x + np.cos(x)-3;
+        return x**2*(x-1);
     def dfun(x):
-        return 1 - np.sin(x);
+        return x**2 + 2*x*(x-1);
 
     (r1,r1n)=bisect_method(fun,3,4,1e-14,100,True);
     plt.show();
@@ -36,7 +36,7 @@ def driver():
     def dg1(x):
         return 1 - 2*dfun(x);
 
-    (rf1,rf1n)=fixed_point_method(g1,dg1,3.5,3,4,1e-14,100,True);
+    (rf1,rf1n)=fixed_point_method(g1,dg1,3.5,3,4,1e-14,50,True);
     plt.show();
 
     # Example 2: c = (1/3)
@@ -45,8 +45,8 @@ def driver():
     def dg2(x):
         return 1 - (1/3)*dfun(x);
 
-    (rf2,rf2n)=fixed_point_method(g2,dg2,3.5,3,4,1e-14,100,True);
-    plt.show();
+ #   (rf2,rf2n)=fixed_point_method(g2,dg2,3.5,3,4,1e-14,100,True);
+#    plt.show();
 
 
 ################################################################################
